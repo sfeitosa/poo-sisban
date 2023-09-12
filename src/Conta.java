@@ -49,4 +49,18 @@ public class Conta {
         saldo -= valor;
         return true;
     }
+
+    public boolean transfere(Conta destino, double valor) {
+        if (this.saca(valor)) {
+            destino.deposita(valor);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Conta [numero=" + numero + ", saldo=" + saldo + ", limite=" + limite + "]";
+    }
+    
 }
