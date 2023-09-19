@@ -1,17 +1,14 @@
-public class Conta {
+public abstract class Conta {
     private int numero;
     private double saldo;
-    private double limite;
 
     public Conta(int numero) {
         this.numero = numero;
-        this.limite = 1000;
     }
 
-    public Conta(int numero, double saldo, double limite) {
+    public Conta(int numero, double saldo) {
         this.numero = numero;
         this.saldo = saldo;
-        this.limite = limite;
     }
 
     public void setNumero(int numero) {
@@ -30,20 +27,12 @@ public class Conta {
         this.saldo = saldo;
     }
 
-    public double getLimite() {
-        return limite;
-    }
-
-    public void setLimite(double limite) {
-        this.limite = limite;
-    }
-
     public void deposita(double valor) {
         saldo += valor;
     }
 
     public boolean saca(double valor) {
-        if (saldo + limite < valor) {
+        if (saldo < valor) {
             return false;
         }
         saldo -= valor;
@@ -60,7 +49,9 @@ public class Conta {
 
     @Override
     public String toString() {
-        return "Conta [numero=" + numero + ", saldo=" + saldo + ", limite=" + limite + "]";
+        return "Conta [numero=" + numero + ", saldo=" + saldo + "]";
     }
+
+    public abstract void emiteExtratoDetalhado();
     
 }

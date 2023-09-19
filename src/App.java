@@ -1,7 +1,12 @@
-public class App {
-    public static void main(String[] args) throws Exception {
-            Emprestimo e = new Emprestimo("10/10/2023", 1000, 10);
+import javax.swing.JOptionPane;
 
-            System.out.println("Taxa: " + e.calculaTaxa());
+public class App {
+    public static void main(String[] args) {
+            ContaCorrente c = new ContaCorrente(1, 1000, 1000);
+
+            
+            c.aumentaLimite(-100);
+            System.out.println(c.toString());
+            
     }
 }
